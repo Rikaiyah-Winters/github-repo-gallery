@@ -115,4 +115,3 @@ filterInput.addEventListener("input", function(e) {
   }
   }
 });
-

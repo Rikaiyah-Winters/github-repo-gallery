@@ -141,6 +141,10 @@ ul {
 
 .filter-repos {
     width: 300px;
+<<<<<<< HEAD
+=======
+    height: 50px;
+>>>>>>> 639c3acf970da2c73823ce92ab92bf45221d296e
     margin-top: 1em;
     padding: 1em;
     margin-bottom: 1em;
