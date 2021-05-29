@@ -4,6 +4,8 @@ const username = "Rikaiyah-Winters";
 const repoList = document.querySelector(".repo-list");
 const repos = document.querySelector(".repos");
 const repoData = document.querySelector(".repo-data");
+const backToRepoGallery = document.querySelector("button");
+const filterInput = document.querySelector("input");
 
 
 const gitUserInfo = async function () {
@@ -43,6 +45,7 @@ const gitRepos = async function () {
 };
 
 const displayRepos = function(repos) {
+  filterInput.classList.remove("hide");
   for (const repo of repos) {
     const repoItem = document.createElement("li")
     repoItem.classList.add("repo")
@@ -88,4 +91,28 @@ const displayRepoInfo = async function(repoInfo, languages) {
   repoData.append(div);
   repoData.classList.remove("hide");
   repos.classList.add("hide");
+  backToRepoGallery.classList.remove("hide")
 };
+
+backToRepoGallery.addEventListener("click", function(){
+  repos.classList.remove("hide");
+  repoData.classList.add("hide");
+  backToRepoGallery.classList.add("hide");
+});
+
+filterInput.addEventListener("input", function(e) {
+  const searchText = e.target.value;
+  //console.log(searchValue);
+  const repos = document.querySelectorAll(".repo");
+  const searchLowerText = searchText.toLowerCase();
+  
+  for (const repo of repos) {
+  const repoLowerText = repo.innerText.toLowerCase();
+  if (repoLowerText.includes(searchLowerText)) {
+    repo.classList.remove("hide");
+  } else {
+    repo.classList.add("hide");
+  }
+  }
+});
+
